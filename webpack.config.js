@@ -1,8 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack')
 const htmlPlugin = new HtmlWebpackPlugin({
   template: './src/index.html',
   filename: 'index.html'
 });
+
+const HMR = new webpack.HotModuleReplacementPlugin()
 
 module.exports = {
   module: {
@@ -16,6 +19,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin, HMR]
 };
 
